@@ -11,7 +11,7 @@ alias ...='cd ../..'
 cd() { builtin cd "$@"; ll; }
 
 ### Navigation Specific
-alias code='cd ~/code'
+alias ml='cd ~/code/ml'
 
 ### hidden control chars - use filename after both
 alias hiddenchars='cat -v -e -t'
