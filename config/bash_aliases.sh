@@ -1,6 +1,3 @@
-### Get sorted list of 20 biggest files in cwd recursively
-alias bigness='du -sh * | sort -n -r | head -n 20'
-
 ### Navigation General
 alias ls='ls'
 alias ll='ls -lha'
@@ -27,3 +24,9 @@ alias fancylog='git log --graph --decorate --oneline'
 ### Docker
 alias cleardockernone='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
 alias cleardocker='docker rm -f $(docker ps -q)'
+
+### Get sorted list of 20 biggest files in cwd recursively
+alias bigness='du -sh * | sort -n -r | head -n 20'
+
+# Misc
+alias ao='aws-okta exec --'

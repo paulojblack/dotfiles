@@ -9,7 +9,7 @@ ln -s ~/dotfiles/.vimrc ~/
 brew install kubectl 
 
 # Utilities
-brew install autojump hstr bash-completion
+brew install autojump hstr bash-completion awscli
 
 ### Node install
 brew install nvm
@@ -20,9 +20,6 @@ mkdir ~/.nvm
 ### Python install following https://medium.com/@briantorresgil/definitive-guide-to-python-on-mac-osx-65acd8d969d0
 brew install pyenv
 brew install openssl readline sqlite3 xz zlib
-
-# Add pyenv to shell ?
-echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile
 
 # Install python 3.x
 brew install python
@@ -37,3 +34,4 @@ python3 -m pipx install black
 brew install python@2
 
 ### End Python install
+
