@@ -1,3 +1,6 @@
+### Autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
 #AUTO COMPLETE
 function _clientdirs()
 {
@@ -17,14 +20,3 @@ function _clientdirs()
 }
 
 complete -F _clientdirs g
-
-### Utility
-alias cleardockernone='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
-alias cleardocker='docker rm -f $(docker ps -q)'
-
-### Git
-alias fancylog='git log --graph --decorate --oneline'
-
-### Actions
-alias sourcebash='source ~/.bash_profile'
-alias catbash='cat ~/.bash_profile'
