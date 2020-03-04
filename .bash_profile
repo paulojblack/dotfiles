@@ -1,5 +1,16 @@
+source ~/.bash_aliases
 source ~/.credentials
-for f in ~/utils/*; do source ${f}; done
+source ~/.languages
+source ~/utils/kube.sh
+source ~/utils/ghub.sh
+
+source /usr/local/etc/bash_completion
+
+source ~/.git-prompt.sh
+source ~/.git-completion.sh
+
+
+# for f in ~/utils/*; do source ${f}; done
 
 ### Begin hstr
 ### Amazing utility, one of my favorites
@@ -14,7 +25,7 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file s
 if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hh -- \C-j"'; fi
 ### End hstr
 
-### PS1 
+### PS1
 export PS1="________________________________________________________________________________\n| [\[\033[32m\]\w]\[\033[0m\]\$(__git_ps1)\n\[\033[1;36m\]=>\[\033[32m\]$ \[\
 \033[0m\]"
 
@@ -32,6 +43,9 @@ fi
 
 ### Set default editor to vim
 if [ -x "`which vim 2>&1`" ]; then
+
+# Print tasks to screen
+task
         export EDITOR=vim
 fi
 
@@ -47,3 +61,23 @@ function allcolors() {
     done
     echo ""
 }
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+### CONDA
+# added by Miniconda3 installer
+export PATH="/Users/pblack/miniconda3/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/11/bin/:$PATH"
+
+#added by me
+. /Users/pblack/miniconda3/etc/profile.d/conda.sh
+### end conda
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+. /usr/local/opt/asdf/asdf.sh
+
+. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
