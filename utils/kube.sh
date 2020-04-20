@@ -28,7 +28,5 @@ kube_ssh() {
 }
 
 alias gw-kops="asdf global kubectl 1.7.16 && asdf current && kubectx us-east-1.gwdocker.com"
-alias gw-staging-eks="asdf global kubectl 1.14.8 && asdf current && aws-okta exec developer -- aws eks --region us-east-1 update-kubeconfig --name gw-staging && kubectx arn:aws:eks:us-east-1:967710342214:cluster/gw-staging"
-alias gw-production-eks="asdf global kubectl 1.14.8 && asdf current && aws-okta exec developer -- aws eks --region us-east-1 update-kubeconfig --name gw-production && kubectx arn:aws:eks:us-east-1:967710342214:cluster/gw-production"
-
-
+alias goodway-staging-eks="asdf global kubectl 1.15.11 && asdf current && aws-okta exec developer -- aws eks --region us-east-1 update-kubeconfig --name goodway-staging && kubectx arn:aws:eks:us-east-1:967710342214:cluster/goodway-staging"
+alias goodway-production-eks="asdf global kubectl 1.15.11 && asdf current && aws-okta exec developer -- aws eks --region us-east-1 update-kubeconfig --name goodway-production && kubectx arn:aws:eks:us-east-1:967710342214:cluster/goodway-production"

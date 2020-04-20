@@ -1,8 +1,13 @@
+### stfu new mac warning about zsh
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 source ~/dotfiles/.bash_aliases
 source ~/.credentials
 source ~/.languages
 source ~/utils/kube.sh
 source ~/utils/ghub.sh
+
+source ~/.iterm2_shell_integration.bash
 
 source /usr/local/etc/bash_completion
 
@@ -45,7 +50,6 @@ fi
 if [ -x "`which vim 2>&1`" ]; then
 
 # Print tasks to screen
-task
         export EDITOR=vim
 fi
 
@@ -68,6 +72,7 @@ export NVM_DIR="$HOME/.nvm"
 
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 

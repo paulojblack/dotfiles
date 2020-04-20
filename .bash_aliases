@@ -109,7 +109,7 @@ alias cleardocker='docker rm -f $(docker ps -q)'
 alias fancylog='git log --graph --decorate --oneline'
 
 ### Kube
-alias kc='kubectl'
+kc () { aws-okta exec developer -- kubectl "$@"; }
 
 ### Actions
 alias sourcebash='source ~/.bash_profile'
