@@ -27,6 +27,12 @@ kube_ssh() {
    kubectl -n ${NAMESPACE} exec -it $(kubectl get pod --namespace ${NAMESPACE} | tail -n 1 | cut -d' ' -f1) bash
 }
 
-alias gw-kops="asdf global kubectl 1.7.16 && asdf current && kubectx us-east-1.gwdocker.com"
-alias goodway-staging-eks="asdf global kubectl 1.15.11 && asdf current && aws-okta exec developer -- aws eks --region us-east-1 update-kubeconfig --name goodway-staging && kubectx arn:aws:eks:us-east-1:967710342214:cluster/goodway-staging"
-alias goodway-production-eks="asdf global kubectl 1.15.11 && asdf current && aws-okta exec developer -- aws eks --region us-east-1 update-kubeconfig --name goodway-production && kubectx arn:aws:eks:us-east-1:967710342214:cluster/goodway-production"
+### Kube PS-1 https://github.com/jonmosco/kube-ps1#installing
+KUBE_PS1_BINARY='aws-okta exec developer -- kubectl'
+KUBE_PS1_NS_ENABLE=false
+KUBE_PS1_SYMBOL_ENABLE=true
+KUBE_PS1_PREFIX=
+KUBE_PS1_SUFFIX=
+KUBE_PS1_SEPARATOR=
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PS1='[$(kube_ps1) \W$(__git_ps1 " (%s)")] $ '
