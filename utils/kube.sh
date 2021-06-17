@@ -26,13 +26,3 @@ kube_ssh() {
 
    kubectl -n ${NAMESPACE} exec -it $(kubectl get pod --namespace ${NAMESPACE} | tail -n 1 | cut -d' ' -f1) bash
 }
-
-### Kube PS-1 https://github.com/jonmosco/kube-ps1#installing
-KUBE_PS1_BINARY='aws-okta exec developer -- kubectl'
-KUBE_PS1_NS_ENABLE=false
-KUBE_PS1_SYMBOL_ENABLE=true
-KUBE_PS1_PREFIX=
-KUBE_PS1_SUFFIX=
-KUBE_PS1_SEPARATOR=
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-PS1='[$(kube_ps1) \W$(__git_ps1 " (%s)")] $ '

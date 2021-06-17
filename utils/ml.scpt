@@ -7,11 +7,11 @@ tell application "iTerm"
 	set promptDelay to 1
 
 	set uiCmd to "cd ~/code/ml/ui-looking-glass; nvm use; npm run start"
-	set apiCmd to "cd ~/code/ml/api-looking-glass; nvm use; sleep 3 && yarn start:watch"
+	set apiCmd to "cd ~/code/ml/api-looking-glass; nvm use; sleep 3 && API_KEY_0=Gv1-cw3sb-4nmir850d npm run start:watch"
 	set dockerCmd to "cd ~/code/ml/api-looking-glass; nvm use; sleep 3 && docker-compose up"
 	set loginCmd to "cd ~/code/ml/service-login; nvm use; PORT=3002 npm start"
-	set annotationsCmd to "cd ~/code/ml/service-annotations; nvm use; PORT=3012 yarn start:watch"
-	-- set pdfCmd to "cd ~/code/ml/service-pdf; nvm use; PORT=3007 yarn start"
+	set annotationsCmd to "cd ~/code/ml/service-annotations; nvm use; PORT=3012 npm run start:watch"
+	-- set pdfCmd to "cd ~/code/ml/service-pdf; nvm use; PORT=3007 npm start"
 	set emailCmd to "cd ~/code/ml/service-email; nvm use; PORT=3005 npm start"
 	set mlDataCmd to "cd ~/code/ml/service-ml-data; nvm use; PORT=3009 npm run start:watch"
 
