@@ -30,3 +30,9 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+. "$HOME/.cargo/env"
+
+. /usr/local/opt/asdf/libexec/asdf.sh
+source <(kubectl completion bash)
+complete -F __start_kubectl k
