@@ -9,6 +9,7 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 ### ASDF
 # . /usr/local/opt/asdf/asdf.sh
 # . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+. /usr/local/opt/asdf/libexec/asdf.sh
 
 ## autonvm switching
 enter_directory() {
@@ -19,24 +20,15 @@ enter_directory() {
   PREV_PWD=$PWD
   [[ -f ".nvmrc" ]] && nvm use
 }
-## Pretty sure this is fine because it's the first usage of it
-export PROMPT_COMMAND=enter_directory
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND} enter_directory;"
 
-### Begin hstr
-### Amazing utility, one of my favorites
-### https://github.com/dvorka/hstr
-# export HH_CONFIG=hicolor         # get more colors
-# shopt -s histappend              # append new history items to .bash_history
-# export HISTCONTROL=ignorespace   # leading space hides commands from history
+
 export HISTFILESIZE=10000        # increase history file size (default is 500)
 export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
-# export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file sync
-# # if this is interactive shell, then bind hh to Ctrl-r (for Vi mode check doc)
-# if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hh -- \C-j"'; fi
-### End hstr
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND} history -a; history -n;"   # mem/file sync
+
 
 # Trying out mcfly instead of hstr
-eval "$(mcfly init bash)"
 
 #AUTO COMPLETE
 function _clientdirs()

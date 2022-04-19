@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source <(kubectl completion bash)
+complete -F __start_kubectl k
 ### TODO
 ### add namespace autocomplete
 ### not relevant now but eventually probabl will deal with multiple pods

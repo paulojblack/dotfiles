@@ -41,7 +41,6 @@ alias ktok='aws-okta exec developer -- kubectl -n kubernetes-dashboard get secre
 ### Utility
 alias cleardockernone='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
 alias cleardocker='docker rm -f $(docker ps -q)'
-alias virtuallogin='PS4='+$BASH_SOURCE> ' BASH_XTRACEFD=7 bash -xl 7>&2'
 
 ### Git
 alias fancylog='git log --graph --decorate --oneline'

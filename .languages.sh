@@ -6,3 +6,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # poetry
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# Rust
+. "$HOME/.cargo/env"
