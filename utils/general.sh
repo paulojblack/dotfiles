@@ -1,15 +1,18 @@
 ### Autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
-### Bash Completion
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+### Load brew into env
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+### Source Bash Completion
+. $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+. $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 ### ASDF
-# . /usr/local/opt/asdf/asdf.sh
-# . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
-. /usr/local/opt/asdf/libexec/asdf.sh
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
 
 ## autonvm switching
 enter_directory() {
@@ -29,6 +32,7 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND} history -a; history -n
 
 
 # Trying out mcfly instead of hstr
+# eval "$(mcfly init bash)"
 
 #AUTO COMPLETE
 function _clientdirs()
@@ -76,5 +80,3 @@ function allcolors() {
     echo ""
 }
 
-#broot
-source /Users/paulo/.config/broot/launcher/bash/br

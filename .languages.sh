@@ -8,11 +8,14 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # Rust
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
 # Golang
-export GOPATH=$HOME/code/go
-export GOROOT=/usr/local/opt/go/libexec
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+# export GOPATH=$HOME/code/go
+# export GOROOT=/usr/local/opt/go/libexec
+# export GOBIN=$GOPATH/bin
+# export PATH=$PATH:$GOPATH/bin
+# export PATH=$PATH:$GOROOT/bin
+
+# Terraform
+alias tf="terraform"

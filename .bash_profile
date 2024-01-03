@@ -8,9 +8,11 @@ source ~/dotfiles/utils/ghub.sh
 source ~/dotfiles/.languages.sh
 source ~/.credentials
 source ~/.iterm2_shell_integration.bash
-source /usr/local/etc/bash_completion
-source ~/.git-prompt.sh
-source ~/.git-completion.sh
+# source /usr/local/etc/bash_completion
+# source ~/.git-prompt.sh
+# source ~/.git-completion.sh
+
+
 source ~/dotfiles/utils/kube_completion
 
 ### PS1
@@ -29,6 +31,10 @@ set -o noclobber
 # Don't log out with ctrl-d
 set -o ignoreeof
 
+export PATH="/opt/homebrew/Cellar/postgresql@15/15.2_3/bin/psql:$PATH"
+# export LDFLAGS="-L/opt/homebrew/opt/postgresql@15/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/postgresql@15/include"
+
 ### pyenv setup needs to be last thing executed (I think) because it doesnt work unless its to the left of all other python related
 ### binaries in the $PATH
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -36,3 +42,10 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(mcfly init bash)"
+
+
+source /Users/paulo/.config/broot/launcher/bash/br
+. "$HOME/.cargo/env"
