@@ -80,3 +80,12 @@ function allcolors() {
     echo ""
 }
 
+rando() {
+    local min=$1
+    local max=$2
+    if [[ -z "$min" || -z "$max" ]]; then
+        echo "Usage: rando <min> <max>"
+        return 1
+    fi
+    hexdump -n 2 -e '/2 "%u\n"' /dev/random | awk -v min="$min" -v max="$max" '{print int(min + ($1 % (max - min + 1)))}'
+}

@@ -4,7 +4,7 @@ alias bigness='du -sh * | sort -n -r | head -n 20'
 ### Navigation
 alias ls='ls'
 # alias ll='ls -lha'
-alias ll='exa -abghHliS'
+alias ll='eza -abghHliS'
 alias la='ls -la'
 alias l='ls -CF'
 alias ..='cd ..'
