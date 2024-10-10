@@ -19,3 +19,5 @@ export PATH=$PATH:$GOPATH/bin
 
 # Terraform
 alias tf="terraform"
+
+alias pb="go build -o preen main.go"
