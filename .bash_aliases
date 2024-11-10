@@ -12,21 +12,12 @@ alias ...='cd ../..'
 alias cat='bat'
 cd() { builtin cd "$@"; ll; }
 
+alias code='cursor'
+
+
 ### hidden control chars - use filename after both
 alias hiddenchars='cat -v -e -t'
 alias ctrlclean="sed -i -e 's/^A/,/g'"
-
-### Begin goodway shortcuts
-alias bpa='cd ~/code/bpa/'
-alias mti='cd ~/code/mti'
-alias sandbox='cd ~/code/sandbox'
-alias mine='cd ~/code/mine/'
-alias bi='cd ~/code/bi/'
-alias ml='cd ~/code/ml/'
-alias mls='osascript ~/dotfiles/utils/ml.scpt'
-alias aow='aws-okta write-to-credentials default ~/.aws/credentials'
-alias aoe='aws-okta exec developer -- '
-# aoi() { eval $(aws-okta env developer | grep -e ^export); }
 
 ### Kube
 akc () { aws-okta exec developer -- kubectl "$@"; }

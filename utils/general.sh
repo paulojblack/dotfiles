@@ -89,3 +89,5 @@ rando() {
     fi
     hexdump -n 2 -e '/2 "%u\n"' /dev/random | awk -v min="$min" -v max="$max" '{print int(min + ($1 % (max - min + 1)))}'
 }
+
+alias rmi='docker rmi -f $(docker images -aq)'
