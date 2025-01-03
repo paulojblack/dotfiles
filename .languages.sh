@@ -11,7 +11,7 @@ export PATH="$HOME/.poetry/bin:$PATH"
 # . "$HOME/.cargo/env"
 
 # Golang
-export GOPATH=$HOME/go
+export GOPATH=$HOME/code
 # export GOROOT=/usr/local/opt/go/libexec
 # export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin

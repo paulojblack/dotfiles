@@ -10,10 +10,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-### ASDF
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/completions/asdf.bash"
-
 ## autonvm switching
 enter_directory() {
   if [[ $PWD == $PREV_PWD ]]; then
@@ -30,29 +26,25 @@ export HISTFILESIZE=10000        # increase history file size (default is 500)
 export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND} history -a; history -n;"   # mem/file sync
 
-
-# Trying out mcfly instead of hstr
-# eval "$(mcfly init bash)"
-
 #AUTO COMPLETE
-function _clientdirs()
-{
-	local curw
-	COMPREPLY=()
-	curw=${COMP_WORDS[COMP_CWORD]}
-	if [ "$CACHEDOUTPUT" = '' ]; then
-		if [ ! -f ${HOME}/.cache_dev_folders ]; then
-			CACHEDOUTPUT=$(find ${HOME}/code -maxdepth 2 ! -type f -exec ls -d -1 "{}" \; | cut -sd / -f 5- | grep -vE ".git|.idea")
-			echo $CACHEDOUTPUT > ${HOME}/.cache_dev_folders
-		else
-			CACHEDOUTPUT=$(cat ${HOME}/.cache_dev_folders)
-		fi
-	fi
-	COMPREPLY=($(compgen -W '${CACHEDOUTPUT}' -- $curw))
-	return 0
-}
+# function _clientdirs()
+# {
+# 	local curw
+# 	COMPREPLY=()
+# 	curw=${COMP_WORDS[COMP_CWORD]}
+# 	if [ "$CACHEDOUTPUT" = '' ]; then
+# 		if [ ! -f ${HOME}/.cache_dev_folders ]; then
+# 			CACHEDOUTPUT=$(find ${HOME}/code -maxdepth 2 ! -type f -exec ls -d -1 "{}" \; | cut -sd / -f 5- | grep -vE ".git|.idea")
+# 			echo $CACHEDOUTPUT > ${HOME}/.cache_dev_folders
+# 		else
+# 			CACHEDOUTPUT=$(cat ${HOME}/.cache_dev_folders)
+# 		fi
+# 	fi
+# 	COMPREPLY=($(compgen -W '${CACHEDOUTPUT}' -- $curw))
+# 	return 0
+# }
 
-complete -F _clientdirs g
+# complete -F _clientdirs g
 
 ### Replace less
 if [ -x "`which most 2>&1`" ]; then

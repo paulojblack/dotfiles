@@ -3,15 +3,12 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 source ~/dotfiles/utils/general.sh
 source ~/dotfiles/.bash_aliases
-source ~/dotfiles/utils/kube.sh
 source ~/dotfiles/utils/ghub.sh
 source ~/dotfiles/.languages.sh
 source ~/.credentials
 source ~/.iterm2_shell_integration.bash
-# source /usr/local/etc/bash_completion
-# source ~/.git-prompt.sh
-# source ~/.git-completion.sh
 
+source ~/dotfiles/.imagine
 
 source ~/dotfiles/utils/kube_completion
 
@@ -47,5 +44,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(mcfly init bash)"
 
 
-source /Users/paulo/.config/broot/launcher/bash/br
-. "$HOME/.cargo/env"
+complete -C /opt/homebrew/bin/terraform terraform
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

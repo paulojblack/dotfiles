@@ -22,9 +22,7 @@ alias ctrlclean="sed -i -e 's/^A/,/g'"
 ### Kube
 akc () { aws-okta exec developer -- kubectl "$@"; }
 kc () { kubectl "$@"; }
-alias gw-kops="asdf global kubectl 1.7.16 && asdf current && kubectx us-east-1.gwdocker.com"
-alias goodway-staging-eks="asdf global kubectl 1.15.11 && asdf current && aws-okta exec developer -- aws eks --region us-east-1 update-kubeconfig --name goodway-staging && kubectx arn:aws:eks:us-east-1:967710342214:cluster/goodway-staging"
-alias goodway-production-eks="asdf global kubectl 1.15.11 && asdf current && aws-okta exec developer -- aws eks --region us-east-1 update-kubeconfig --name goodway-production && kubectx arn:aws:eks:us-east-1:967710342214:cluster/goodway-production"
+
 alias mk='minikube'
 alias k='kubectl'
 alias ktok='aws-okta exec developer -- kubectl -n kubernetes-dashboard get secret $(aws-okta exec developer -- kubectl -n kubernetes-dashboard get serviceaccount/dashboard-admin-sa -o jsonpath='{.secrets[0].name}') -o jsonpath='{.data.token}' | base64 --decode | pbcopy'

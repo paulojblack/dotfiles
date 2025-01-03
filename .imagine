@@ -1,0 +1,1 @@
+alias alog='aws sso login --profile data-prod; export AWS_PROFILE="data-prod"'
