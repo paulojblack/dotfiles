@@ -47,10 +47,10 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND} history -a; history -n
 # complete -F _clientdirs g
 
 ### Replace less
-if [ -x "`which most 2>&1`" ]; then
-    alias less=most
-    export PAGER=most
-fi
+# if [ -x "`which most 2>&1`" ]; then
+#     alias less=most
+#     export PAGER=most
+# fi
 
 ### Set default editor to vim
 if [ -x "`which vim 2>&1`" ]; then

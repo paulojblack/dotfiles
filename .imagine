@@ -1,1 +1,2 @@
 alias alog='aws sso login --profile data-prod; export AWS_PROFILE="data-prod"'
+alias auat='aws sso login --profile data-uat; export AWS_PROFILE="data-uat"'
